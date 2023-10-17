@@ -3,6 +3,7 @@ import { getLegal } from "../../../../../lib/groq-data"
 import ContentSimple from "../../components/templates/content-simple"
 import { Metadata } from 'next';
 import ContentEditor from "../../components/util/content-editor";
+export const revalidate = 0
 
 interface Props {
     params: {

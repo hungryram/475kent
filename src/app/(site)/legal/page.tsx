@@ -2,6 +2,7 @@ import { client } from '../../../../sanity/lib/client'
 import { legalPage } from '../../../../lib/groq-data'
 import ContentEditor from '../components/util/content-editor'
 import Link from 'next/link'
+export const revalidate = 0
 
 // GENERATES SEO
 export async function generateMetadata() {

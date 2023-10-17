@@ -9,6 +9,9 @@ import { bodyFont } from '../fonts'
 import Pixel from './components/global/pixel'
 import NavbarWide from './components/global/navbar-wide'
 
+export const revalidate = 0
+
+
 // GENERATES SEO
 export async function generateMetadata(): Promise<Metadata> {
   const data = await client.fetch(mainLayoutProfile, { next: { revalidate: 60 } })
