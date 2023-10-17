@@ -51,15 +51,16 @@ export default function LandingPage({
 }: Props) {
 
     return (
-        <main className="lg:relative">
-            <div className="relative h-96 w-full sm:h-72 md:h-96 lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-1/2">
+        <main className="lg:relative bg-[#e5e3d8]">
+            <div className="relative h-96 w-full lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-1/2">
                 <Image
-                    className="absolute inset-0 h-full w-full object-cover"
+                    className="absolute inset-0 h-full w-full object-cover object-center"
                     src={image}
                     alt={altText}
                     placeholder={blurData ? 'blur' : 'empty'}
                     blurDataURL={blurData}
                     fill={true}
+                    priority={true}
                 />
             </div>
             <div className="mx-auto flex justify-end w-full pb-20 pt-16 lg:py-20 sticky">
