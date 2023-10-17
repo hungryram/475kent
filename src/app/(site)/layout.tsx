@@ -5,7 +5,7 @@ import './globals.css'
 import { appearance, mainLayoutProfile } from '../../../lib/groq-data'
 import { Metadata } from 'next';
 import GoogleAnalytics from './components/global/analytics'
-import { interFont } from '../fonts'
+import { bodyFont } from '../fonts'
 import Pixel from './components/global/pixel'
 import NavbarWide from './components/global/navbar-wide'
 
@@ -130,10 +130,11 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      {data?.profileSettings?.settings?.googleID &&
-        <GoogleAnalytics GA_TRACKING_ID={data?.profileSettings?.settings?.googleID} />
-      }
-      <body className={interFont.variable}>
+
+      <body className={bodyFont.variable}>
+        {data?.profileSettings?.settings?.googleID &&
+          <GoogleAnalytics GA_TRACKING_ID={data?.profileSettings?.settings?.googleID} />
+        }
         {data?.profileSettings?.settings?.facebookPixel &&
           <Pixel
             facebookPixel={data?.profileSettings?.settings?.facebookPixel}
@@ -196,7 +197,7 @@ export default async function RootLayout({
           />
         }
         {children}
-        <Footer
+        {/* <Footer
           singleColumn={data?.appearances?.footer?.singleColumn}
           footerText={data.appearances?.footer?.footerText}
           company_name={data.profileSettings?.company_name}
@@ -230,7 +231,7 @@ export default async function RootLayout({
           tiktok={data.profileSettings?.social?.tiktok}
           zillow={data.profileSettings?.social?.zillow}
           size={data.profileSettings?.social?.size}
-        />
+        /> */}
       </body>
     </html>
   )

@@ -30,6 +30,7 @@ import TestimonialsColumn from "./testimonials-column";
 import LeadFormTwoColumn from "./leadform-two-column";
 import Map from "./map";
 import AvailabilityTable from "./availability-table";
+import LandingPage from "./landing-page";
 
 interface Props {
     pageBuilder: any[];
@@ -209,6 +210,25 @@ export default function Main({
                                     blurData={section?.imageData?.asset?.lqip}
                                     textAlign={section?.textAlign}
                                     textColor={section?.textColor?.hex}
+                                    {...settingsSchema}
+                                />
+                            }
+                            {section?.layoutType === "landingPage" &&
+                                <LandingPage
+                                    key={section?._key}
+                                    content={section?.content}
+                                    formSchema={section?.formBuilder}
+                                    image={section?.imageData?.asset?.url}
+                                    altText={section?.imageData?.asset?.altText}
+                                    blurData={section?.imageData?.asset?.lqip}
+                                    textAlign={section?.textAlign}
+                                    textColor={section?.textColor?.hex}
+                                    footerContent={section?.footer}
+                                    phone={section?.phone}
+                                    website={section?.website}
+                                    email={section?.email}
+                                    address={section?.address}
+                                    images={section?.childImage}
                                     {...settingsSchema}
                                 />
                             }

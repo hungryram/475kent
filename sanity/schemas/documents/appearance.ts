@@ -85,21 +85,18 @@ export default defineType({
                     name: 'buttonCorner',
                     description: 'Higher numbers will give more rounded button corners',
                     type: 'number',
-                    validation: Rule => Rule.error().min(0).max(100)
                 },
                 {
                     title: 'X Axis Padding',
                     name: 'xPadding',
                     description: 'padding to the left and right of the button',
                     type: 'number',
-                    validation: Rule => Rule.error().min(5).max(20)
                 },
                 {
                     title: 'Y Axis Padding',
                     name: 'yPadding',
                     description: 'padding to the top and bottom of the button',
                     type: 'number',
-                    validation: Rule => Rule.error().min(10).max(100)
                 }
             ]
         },

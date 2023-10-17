@@ -43,6 +43,7 @@ import { AiOutlineFontColors } from "react-icons/ai"
             { "title": "Emphasis", "value": "em" },
             { "title": "Underline", "value": "underline" },
             { "title": "Strike", "value": "strike-through" },
+            { "title": "gradientHeading", "value": "gradientHeading" },
           ],
           // Annotations can be any object structure – e.g. a link or a footnote.
           annotations: [

@@ -226,7 +226,8 @@ export const pageBuilderData = groq`
     'altText': altText,
     'lqip': metadata.lqip,
     url,
-  }
+  },
+  width
 },
 'buttonLinking': button.button{
   'buttonText': text,

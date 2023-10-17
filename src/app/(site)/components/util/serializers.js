@@ -22,9 +22,9 @@ const serializers = {
         image: ({ value }) => {
             return (
                 <div className={
-                    `relative flex ${value.imageAlign == 'left' && 'justify-start' || value.imageAlign == 'center' && 'justify-center' || value.imageAlign =='right' && 'justify-end'}`
+                    `relative flex ${value.imageAlign == 'left' && 'justify-start' || value.imageAlign == 'center' && 'justify-center' || value.imageAlign == 'right' && 'justify-end'}`
                 }>
-                        <img src={value.asset !== undefined && urlForImage(value).url()} alt={value.altTag} width={value.imageWidth} className="my-10"/>
+                    <img src={value.asset !== undefined && urlForImage(value).url()} alt={value.altTag} width={value.imageWidth} className="my-10" />
                 </div>
             )
         },
@@ -39,7 +39,10 @@ const serializers = {
             return (
                 <span style={{ color: value?.hex }}>{children}</span>
             )
-        }
+        },
+        gradientHeading: ({ children }) => (
+            <span className="gradient-heading">{children}</span>
+        )
     }
 }
 

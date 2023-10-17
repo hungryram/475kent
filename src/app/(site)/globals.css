@@ -26,14 +26,19 @@ body {
 }
 
 .primary-button {
-  @apply px-3 py-2 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2;
-  background-color: var(--primary-button-background);
+  @apply p-2 font-light shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-gradient-to-r from-[#94542b] to-[#fcbf99];
+  /* background-color: var(--primary-button-background); */
   color: var(--primary-button-text);
   border-radius: var(--button-radius);
   padding-left: var(--button-x-padding);
   padding-right: var(--button-x-padding);
   padding-top: var(--button-y-padding);
-  padding-bottom: var(--button-y-padding);}
+  padding-bottom: var(--button-y-padding);
+}
+
+.buttonWrapper {
+  @apply p-[2px] border-[#bf8551] border;
+}
 
 .secondary-button {
   @apply px-3 py-2 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2;
@@ -93,6 +98,14 @@ body .content h6 {
   @apply my-1;
 }
 
+.gradient-heading {
+  -webkit-text-fill-color: transparent;
+  @apply bg-gradient-to-r from-[#94542b] to-[#fcbf99];
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-size: 300%;
+}
+
 .swiper-button-disabled {
   opacity: 0.5;
   pointer-events: none;
@@ -125,4 +138,13 @@ input[type="radio"]:checked {
 
 .slide-down {
   transform: translateY(0%);
+}
+
+.footerContact li {
+  margin-right: 10px; /* Adjust the spacing between items */
+}
+
+.footerContact li:not(:last-child):after {
+  content: '|'; /* Add the pipe separator after all list items except the last one */
+  margin-left: 10px; /* Adjust the spacing between the pipe separator and the text */
 }

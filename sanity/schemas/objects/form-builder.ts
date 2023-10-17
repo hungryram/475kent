@@ -74,6 +74,16 @@ export default defineType({
                             validation: (Rule) => Rule.required().error('Name your input field'),
                         },
                         {
+                            title: 'Placeholder',
+                            name: 'placeholder',
+                            type: 'string'
+                        },
+                        {
+                            title: 'Make Half Width',
+                            name: 'half',
+                            type: 'boolean'
+                        },
+                        {
                             title: 'Type',
                             name: 'type',
                             type: 'string',

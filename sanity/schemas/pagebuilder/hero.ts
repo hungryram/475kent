@@ -20,6 +20,7 @@ export default defineType({
                     { title: "Static Hero", value: "static" },
                     { title: "Side by Side", value: "sideByside" },
                     { title: "Basic", value: "basic" },
+                    { title: "landingPage", value: "landingPage" },
                 ],
             },
             initialValue: "static"
@@ -54,10 +55,40 @@ export default defineType({
             },
         },
         {
+            title: 'Footer',
+            name: 'footer',
+            type: 'contentEditor',
+            hidden: ({ parent }) => parent?.layoutType !== "landingPage"
+        },
+        {
+            title: 'Address',
+            name: 'address',
+            type: 'string',
+            hidden: ({ parent }) => parent?.layoutType !== "landingPage"
+        },
+        {
+            title: 'Website',
+            name: 'website',
+            type: 'string',
+            hidden: ({ parent }) => parent?.layoutType !== "landingPage"
+        },
+        {
+            title: 'Email',
+            name: 'email',
+            type: 'string',
+            hidden: ({ parent }) => parent?.layoutType !== "landingPage"
+        },
+        {
+            title: 'Phone',
+            name: 'phone',
+            type: 'string',
+            hidden: ({ parent }) => parent?.layoutType !== "landingPage"
+        },
+        {
             title: 'Images',
             name: 'images',
             type: 'array',
-            hidden: ({ parent }) => parent?.layoutType !== 'heroSwiper',
+            hidden: ({ parent }) => parent?.layoutType !== 'heroSwiper' && parent?.layoutType !== 'landingPage',
             of: [
                 {
                     title: 'Image',
@@ -67,6 +98,11 @@ export default defineType({
                             title: 'Content',
                             name: 'content',
                             type: 'contentEditor'
+                        },
+                        {
+                            title: 'Width',
+                            name: 'width',
+                            type: 'number'
                         },
                         {
                             title: 'Primary Button',
@@ -84,6 +120,13 @@ export default defineType({
             options: {
                 layout: 'grid',
             },
+        },
+        {
+            title: 'Form Builder',
+            name: 'formBuilder',
+            type: 'formBuilder',
+            hidden: ({ parent }) => parent?.layoutType !== 'landingPage',
+
         },
         //   {
         //     title: 'Animation',
@@ -146,14 +189,14 @@ export default defineType({
     ],
     preview: {
         select: {
-          content: 'content',
+            content: 'content',
         },
         prepare({ content }) {
-          const hasContent = content && content[0]?.children?.length > 0;
-      
-          return {
-            title: hasContent ? content[0].children[0].text : 'Hero Section',
-          };
+            const hasContent = content && content[0]?.children?.length > 0;
+
+            return {
+                title: hasContent ? content[0].children[0].text : 'Hero Section',
+            };
         },
-      },
+    },
 })

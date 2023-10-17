@@ -6,13 +6,17 @@ import ContentEditor from '../util/content-editor';
 interface FormField {
   name: string;
   label: string;
+  placeholder: string;
   type: any;
   _key: string;
-  radioValue: string[]
-  selectValue: string[]
-  checkBoxValue: string[]
-  required: boolean
-  stacked: boolean
+  radioValue: string[];
+  selectValue: string[];
+  checkBoxValue: string[];
+  required: boolean;
+  stacked: boolean;
+  inlineEmail: boolean;
+  hideLabel: boolean;
+  half: boolean
 }
 
 interface FormSchema {
@@ -27,6 +31,7 @@ interface FormSchema {
   buttonBackgroundColor: any;
   buttonTextColor: any;
   formDisclaimer: any
+  makeStacked: boolean;
 }
 
 interface FormBuilderProps {
@@ -46,22 +51,29 @@ export default function FormBuilder({ formSchema }: FormBuilderProps) {
         <input className="hidden" type="hidden" name="subject" value={formSchema?.subject} />
         <input className="hidden" type="hidden" name="redirectTo" value={formSchema?.redirectTo} />
         {formSchema?.fields && (
-          <>
+          <div className="grid grid-cols-4 md:gap-x-20 gap-x-4 gap-y-6">
             {formSchema.fields.map((field, i) => {
               return (
-                <div key={field._key} className="mb-6">
-                  <label htmlFor={field.label.replace(/ /g, '') + i} className={Styles.formLabel}>
-                    {field.label}
-                    {field.required && <span>*</span>}
-                  </label>
+                <div className={`${field.half ? 'col-span-2' : 'col-span-4'}`} key={field._key}>
+                  {field?.hideLabel ?
+                    <></>
+                    :
+                    <label htmlFor={field.label.replace(/ /g, '') + i} className={Styles.formLabel}>
+                      {field.label}
+                      {field.required && <span>*</span>}
+                    </label>
+                  }
                   {field.type === 'text' && (
-                    <input
-                      type="text"
-                      name={field.label}
-                      className={Styles.formDefaultInput}
-                      id={field.label.replace(/ /g, '') + i}
-                      required={field.required ? true : undefined}
-                    />
+                    <div className={Styles.fieldWrapper}>
+                      <input
+                        type="text"
+                        name={field.label}
+                        className={Styles.formDefaultInput}
+                        id={field.label.replace(/ /g, '') + i}
+                        required={field.required ? true : undefined}
+                        placeholder={field.placeholder}
+                      />
+                    </div>
                   )}
                   {field.type === 'file' && (
                     <input
@@ -73,33 +85,39 @@ export default function FormBuilder({ formSchema }: FormBuilderProps) {
                     />
                   )}
                   {field.type === 'email' && (
-                    <input
-                      type="email"
-                      name={field.label}
-                      className={Styles.formDefaultInput}
-                      id={field.label.replace(/ /g, '') + i}
-                      required={field.required ? true : undefined}
-                    />
+                    <div className={Styles.fieldWrapper}>
+                      <input
+                        type="email"
+                        name={field.label}
+                        className={`${Styles.formDefaultInput} ${field?.inlineEmail ? 'flex-auto' : ''}`}
+                        placeholder={field.placeholder}
+                        id={field.label.replace(/ /g, '') + i}
+                        required={field.required ? true : undefined}
+                      />
+                    </div>
                   )}
                   {field.type === 'phone' && (
-                    <input
-                      type="tel"
-                      name={field.label}
-                      className={Styles.formDefaultInput}
-                      id={field.label.replace(/ /g, '') + i}
-                      required={field.required ? true : undefined}
-                    />
+                    <div className={Styles.fieldWrapper}>
+                      <input
+                        type="tel"
+                        name={field.label}
+                        className={Styles.formDefaultInput}
+                        id={field.label.replace(/ /g, '') + i}
+                        required={field.required ? true : undefined}
+                        placeholder={field.placeholder}
+                      />
+                    </div>
                   )}
                   {field.type === 'radio' && (
                     <div className={`gap-x-6 mt-4 ${field?.stacked ? '' : 'flex items-center'}`}>
                       {field?.radioValue?.map((node, i) => {
                         return (
-                          <div className="flex items-center gap-2 my-1" key={i}>
+                          <div className={`flex items-center gap-2 my-1 ${Styles.fieldWrapper}`} key={i}>
                             <input
                               type="radio"
                               name={field.label}
                               id={node.replace(/^[^A-Za-z0-9]+/g, '').replace(/[^A-Za-z0-9_\-:.]/g, '') + i}
-                              className="h-4 w-4 rounded border-gray-300"
+                              className={`h-4 w-4 !rounded-full ${Styles.radioStyles}`}
                               required={field.required ? true : undefined}
                             />
                             <label htmlFor={node.replace(/^[^A-Za-z0-9]+/g, '').replace(/[^A-Za-z0-9_\-:.]/g, '') + i} className={Styles.formInputList}>
@@ -114,12 +132,12 @@ export default function FormBuilder({ formSchema }: FormBuilderProps) {
                     <div className={`gap-x-6 mt-4 ${field?.stacked ? '' : 'flex items-center'}`}>
                       {field?.checkBoxValue?.map((node, i) => {
                         return (
-                          <div className="flex items-center gap-2 my-1" key={i}>
+                          <div className={`flex items-center gap-2 my-1 ${Styles.fieldWrapper}`} key={i}>
                             <input
                               type="checkbox"
                               name={field.label}
                               id={node.replace(/^[^A-Za-z0-9]+/g, '').replace(/[^A-Za-z0-9_\-:.]/g, '') + i}
-                              className="h-4 w-4 rounded border-gray-300"
+                              className={`h-4 w-4 ${Styles.inputStyles}`}
                               value={node}
                               required={field.required ? true : undefined}
                             />
@@ -132,11 +150,11 @@ export default function FormBuilder({ formSchema }: FormBuilderProps) {
                     </div>
                   )}
                   {field.type === 'select' && (
-                    <div className="flex items-center gap-x-3 mt-4">
+                    <div className={`flex items-center gap-x-3 mt-4 ${Styles.fieldWrapper}`}>
                       <select
                         id={field.label.replace(/ /g, '') + i}
                         name={field.label}
-                        className="block w-full rounded-md border py-1.5 text-gray-900 shadow-sm sm:max-w-xs sm:text-sm sm:leading-6 bg-gray-100"
+                        className={`block w-full py-1.5 ${Styles.inputStyles}`}
                         required={field.required ? true : undefined}
                       >
                         {field?.selectValue?.map((node, i) => {
@@ -150,32 +168,39 @@ export default function FormBuilder({ formSchema }: FormBuilderProps) {
                     </div>
                   )}
                   {field.type === 'textarea' && (
-                    <textarea
-                      name={field.label}
-                      className={Styles.formDefaultInput}
-                      rows={3}
-                      id={field.label.replace(/ /g, '') + i}
-                      required={field.required ? true : undefined}
-                    />
+                    <div className={Styles.fieldWrapper}>
+                      <textarea
+                        name={field.label}
+                        className={Styles.formDefaultInput}
+                        rows={3}
+                        id={field.label.replace(/ /g, '') + i}
+                        required={field.required ? true : undefined}
+                        placeholder={field.placeholder}
+                      />
+                    </div>
                   )}
                 </div>
               );
             })}
-          </>
+          </div>
         )}
         {formSchema?.formDisclaimer &&
-          <div className="mb-6 text-xs">
-            <ContentEditor 
+          <div className="mb-6 text-xs mt-4">
+            <ContentEditor
               content={formSchema?.formDisclaimer}
             />
           </div>
         }
-        <button type="submit" className="primary-button" style={{
-          backgroundColor: formSchema?.buttonBackgroundColor?.hex,
-          color: formSchema?.buttonTextColor?.hex
-        }}>
-          {formSchema?.buttonLabel ?? 'Submit'}
-        </button>
+        <div className="flex justify-start mt-6">
+          <div className="buttonWrapper">
+            <button type="submit" className="primary-button" style={{
+              backgroundColor: formSchema?.buttonBackgroundColor?.hex,
+              color: formSchema?.buttonTextColor?.hex
+            }}>
+              {formSchema?.buttonLabel ?? 'Submit'}
+            </button>
+          </div>
+        </div>
       </form>
     </div>
   );
