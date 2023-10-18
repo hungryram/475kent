@@ -86,7 +86,7 @@ export default function LandingPage({
                         <div className="xl:w-3/4 w-full">
                             <ul className="footerContact flex flex-wrap">
                                 <li>
-                                    <a href={`${website}`}>{website}</a>
+                                    <a href={`/`}>{website}</a>
                                 </li>
                                 <li>
                                     <a href={`mailto:${email}`}>{email}</a>
@@ -95,7 +95,7 @@ export default function LandingPage({
                                     <a href={`tel:${phone}`}>{phone}</a>
                                 </li>
                                 <li className="whitespace-nowrap">
-                                    <a href={`${address}`}>{address}</a>
+                                    <a href={`https://www.google.com/maps/place/${address}`}>{address}</a>
                                 </li>
                             </ul>
                         </div>
