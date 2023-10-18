@@ -24,7 +24,7 @@ const serializers = {
                 <div className={
                     `relative flex ${value.imageAlign == 'left' && 'justify-start' || value.imageAlign == 'center' && 'justify-center' || value.imageAlign == 'right' && 'justify-end'}`
                 }>
-                    <img src={value.asset !== undefined && urlForImage(value).url()} alt={value.altTag} width={value.imageWidth} className="my-10" />
+                    <img src={value.asset !== undefined && urlForImage(value).url()} alt={value.altTag} width={value.imageWidth} className="my-6" />
                 </div>
             )
         },

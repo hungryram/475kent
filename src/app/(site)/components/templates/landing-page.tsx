@@ -63,7 +63,7 @@ export default function LandingPage({
                     priority={true}
                 />
             </div>
-            <div className="mx-auto flex justify-end w-full pb-20 pt-16 lg:py-20 sticky">
+            <div className="mx-auto flex justify-end w-full pb-20 xl:py-20 lg:py-4">
                 <div className="md:px-20 px-6 lg:w-1/2">
                     {(content || primaryButtonLink || secondaryButtonLink) && (
                         <HeaderSection
