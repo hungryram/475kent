@@ -82,8 +82,8 @@ export default function LandingPage({
                     <FormBuilder
                         formSchema={formSchema}
                     />
-                    <div className="grid md:grid-cols-2 grid-cols-1 mt-14 items-center">
-                        <div>
+                    <div className="flex xl:flex-row flex-col-reverse items-center mt-10">
+                        <div className="xl:w-3/4 w-full">
                             <ul className="footerContact flex flex-wrap">
                                 <li>
                                     <a href={`${website}`}>{website}</a>
@@ -99,7 +99,7 @@ export default function LandingPage({
                                 </li>
                             </ul>
                         </div>
-                        <div>
+                        <div className="xl:w-1/4 w-full">
                             <div className="mx-auto flex flex-wrap max-w-lg items-center justify-center gap-x-8 gap-y-10 sm:max-w-xl sm:gap-x-10 lg:mx-0 lg:max-w-none mb-10">
                                 {images?.map((image: string, i: number) => {
                                     return (
@@ -117,7 +117,7 @@ export default function LandingPage({
                         </div>
                     </div>
 
-                    <div className="text-[10px] uppercase">
+                    <div className="text-[10px] uppercase xl:mt-0 mt-6">
                         <ContentEditor
                             content={footerContent}
                         />
