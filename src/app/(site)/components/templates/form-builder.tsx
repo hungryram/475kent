@@ -117,7 +117,7 @@ export default function FormBuilder({ formSchema }: FormBuilderProps) {
                               type="radio"
                               name={field.label}
                               id={node.replace(/^[^A-Za-z0-9]+/g, '').replace(/[^A-Za-z0-9_\-:.]/g, '') + i}
-                              className={`h-4 w-4 !rounded-full ${Styles.radioStyles}`}
+                              className={`h-4 w-4 ${Styles.radioStyles}`}
                               required={field.required ? true : undefined}
                             />
                             <label htmlFor={node.replace(/^[^A-Za-z0-9]+/g, '').replace(/[^A-Za-z0-9_\-:.]/g, '') + i} className={Styles.formInputList}>
