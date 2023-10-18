@@ -52,9 +52,9 @@ export default function LandingPage({
 
     return (
         <main className="lg:relative bg-[#e5e3d8]">
-            <div className="relative h-96 w-full lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-1/2">
+            <div className="h-96 w-full lg:fixed relative lg:inset-y-0 lg:left-0 lg:h-screen lg:w-1/2">
                 <Image
-                    className="absolute inset-0 h-full w-full object-cover object-center"
+                    className="inset-0 h-screen w-full object-cover object-center"
                     src={image}
                     alt={altText}
                     placeholder={blurData ? 'blur' : 'empty'}
