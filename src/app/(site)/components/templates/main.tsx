@@ -540,6 +540,9 @@ export default function Main({
                         <ContactPage
                             key={section?._key}
                             content={section?.content}
+                            image={section?.imageData?.asset?.url}
+                            altText={section?.imageData?.asset?.altText}
+                            blurData={section?.imageData?.asset?.lqip}
                             backgroundStyles={backgroundStyles}
                             // CONTACT
                             hideContact={section?.hideContact}

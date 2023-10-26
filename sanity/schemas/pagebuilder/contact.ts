@@ -11,6 +11,11 @@ export default defineType({
       type: 'contentEditor'
     },
     {
+      title: 'Image',
+      name: 'image',
+      type: 'image'
+    },
+    {
       title: 'Hide Contact Information',
       name: 'hideContact',
       type: 'boolean'
