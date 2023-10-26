@@ -198,6 +198,7 @@ export default async function RootLayout({
           footerText={data.appearances?.footer?.footerText}
           footerLogos={data.appearances?.footer?.footerLogos}
           company_name={data.profileSettings?.company_name}
+          website={'www.475kentlofts.com'}
           image={data.appearances?.footer?.footerLogo?.asset?.url}
           quickLinksHeading={data.appearances?.footer?.quickLinksHeading}
           quickLinksTwoHeading={data.appearances?.footer?.quickLinksTwoHeading}

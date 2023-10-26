@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Styles from "./hero.module.css"
 import HeaderSection from "./header-section";
+import Animate from "./animate";
 
 interface Props {
     content: string[];
@@ -42,41 +43,43 @@ export default function Hero({
     };
 
     return (
-        <div className={`relative isolate inset-0 ${imageHeight} flex items-center`}>
-            {image &&
-                <Image
-                    src={image}
-                    alt={altText}
-                    placeholder={blurData ? 'blur' : 'empty'}
-                    blurDataURL={blurData}
-                    className={Styles.heroImage}
-                    fill={true}
-                    sizes="100vw"
-                    priority={true}
-                />
-            }
-            {(content || primaryButtonLink || secondaryButtonLink) && (
-                <div className={`container ${Styles.heroInnerContainer}`}>
-                    <div style={{
-                        color: textColor
-                    }}>
+        <Animate>
+            <div className={`relative isolate inset-0 ${imageHeight} flex items-center`}>
+                {image &&
+                    <Image
+                        src={image}
+                        alt={altText}
+                        placeholder={blurData ? 'blur' : 'empty'}
+                        blurDataURL={blurData}
+                        className={Styles.heroImage}
+                        fill={true}
+                        sizes="100vw"
+                        priority={true}
+                    />
+                }
+                {(content || primaryButtonLink || secondaryButtonLink) && (
+                    <div className={`container ${Styles.heroInnerContainer}`}>
+                        <div style={{
+                            color: textColor
+                        }}>
 
-                        <HeaderSection
-                            content={content}
-                            textAlign={textAlign}
-                            // PRIMARY
-                            buttonLink={primaryButtonLink}
-                            primaryButtonText={primaryButtonText}
-                            primaryButtonStyle={primaryButtonStyle}
-                            // SECONDARY
-                            secondaryButtonLink={secondaryButtonLink}
-                            secondaryButtonText={secondaryButtonText}
-                            secondaryButtonStyle={secondaryButtonStyle}
-                        />
+                            <HeaderSection
+                                content={content}
+                                textAlign={textAlign}
+                                // PRIMARY
+                                buttonLink={primaryButtonLink}
+                                primaryButtonText={primaryButtonText}
+                                primaryButtonStyle={primaryButtonStyle}
+                                // SECONDARY
+                                secondaryButtonLink={secondaryButtonLink}
+                                secondaryButtonText={secondaryButtonText}
+                                secondaryButtonStyle={secondaryButtonStyle}
+                            />
+                        </div>
                     </div>
-                </div>
-            )
-            }
-        </div>
+                )
+                }
+            </div>
+        </Animate>
     )
 }

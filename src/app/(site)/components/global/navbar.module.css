@@ -2,7 +2,7 @@
     @apply inset-x-0 z-50 lg:block hidden;
     /* background-color: var(--header-background-color); */
     color: var(--header-navigation-color);
-    background-image: url('https://cdn.sanity.io/images/oub3uazf/production/2cc2eb1a11aeaec0ce7efb554ecacba3e005b95e-4752x2984.jpg');
+    background-image: url('https://cdn.sanity.io/images/oub3uazf/production/abf0e6dfb71321cee017365bdecb39cd5875db4d-1140x716.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: right;
@@ -22,7 +22,7 @@
 }
 
 .navLinks {
-    @apply text-sm font-semibold leading-6 py-2 block rounded-md lg:inline-flex items-center outline-none;
+    @apply font-semibold leading-6 py-2 block rounded-md lg:inline-flex items-center outline-none;
 }
 
 .desktopDropDown {
@@ -34,15 +34,15 @@
 }
 
 .navWrapper {
-    @apply mx-auto flex max-w-7xl items-center justify-between py-3 lg:px-2 md:px-4 px-4
+    @apply mx-auto flex lg:w-5/6 items-center justify-between py-3 lg:px-2 md:px-4 px-4 space-x-10
 }
 
 .desktopLogoContainer {
-    @apply flex lg:flex-1 relative
+    @apply flex flex-1 relative shrink-0
 }
 
 .desktopMenuContainer {
-    @apply lg:flex lg:gap-x-8
+    @apply lg:flex flex-1 lg:gap-x-8 justify-end
 }
 
 .toggleMenu {

@@ -117,7 +117,7 @@ export default function Map({
   return (
     <>
       <div style={allStyles}>
-        <div className="container">
+        <div className="container text-center">
           {(content || primaryButtonLink || secondaryButtonLink) && (
             <HeaderSection
               content={content}
@@ -154,7 +154,7 @@ export default function Map({
                               onClick={() => renderLocation(item)}
                             >
                               {item?.isCondo ? <AiFillStar className="text-5xl cursor-pointer" /> : (
-                                <div className={`w-6 h-6 hover:w-7 hover:h-7 duration-200 transition-all rounded-full text-white flex items-center justify-center bg-black cursor-pointer ${item?.category === 'Parks' && 'bg-slate-700'} ${item?.category === 'Shopping' && 'bg-purple-600'} ${item?.category === 'Dining' && 'bg-yellow-600'} ${item?.category === 'Convenience' && 'bg-orange-400'} ${item?.category === 'Fitness' && 'bg-red-600'} ${item?.category === 'Recreation' && 'bg-blue-500'}`} >{i++}</div>
+                                <div className={`w-6 h-6 hover:w-7 hover:h-7 duration-200 transition-all rounded-full text-white flex items-center justify-center bg-[#94542b] cursor-pointer`} >{i++}</div>
                               )}
                             </div>
                           </Marker>

@@ -69,18 +69,6 @@ export default function Example({
   return (
     <>
       <header className={`${Styles.header} ${scroll ? Styles.stickyHeader : '-top-52'} ease-in-out transition-all duration-700 ${enableTransparent ? 'absolute left-0 right-0 z-50 top-0' : 'shadow'}`}>
-        {enableTopHeader &&
-          <div className={`${Styles.topHeader} ${scroll && 'hidden'}`}>
-            <div className={Styles.topHeaderContainer}>
-              <div />
-              <div className="flex items-center space-x-6">
-                {email && <a href={`mailto:${email}`} className="text-sm">{email}</a>}
-                {phone && <a href={`tel:${phone}`} className="text-sm">Direct: {phone}</a>}
-                {office && <a href={`tel:${office}`} className="text-sm">Office: {office}</a>}
-              </div>
-            </div>
-          </div>
-        }
         <nav className={Styles.navWrapper} aria-label="Global">
           <div className={Styles.desktopLogoContainer}>
             <Link href="/">
@@ -90,6 +78,7 @@ export default function Example({
                   width={logoScroll}
                   height={10}
                   alt={company_name}
+                  className="shrink-0"
                 />
                 :
                 <h1 className="text-3xl">{company_name}</h1>
@@ -177,10 +166,15 @@ export default function Example({
             })}
           </div>
           {!hideCta && ctaLinking &&
-            <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+            <div className="hidden lg:flex space-x-8">
               <div className="buttonWrapper">
                 <Link href={ctaLinking ?? '/'} className="primary-button block">
                   {ctaLink?.text}
+                </Link>
+              </div>
+              <div className="buttonWrapper">
+                <Link href={ctaLinking ?? '/'} className="primary-button block">
+                  Apply
                 </Link>
               </div>
             </div>

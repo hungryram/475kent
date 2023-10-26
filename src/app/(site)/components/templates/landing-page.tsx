@@ -55,7 +55,8 @@ export default function LandingPage({
         <style>
             {`
             footer,
-            header {
+            header,
+            nav {
                 display: none!important;
             }
             `}
