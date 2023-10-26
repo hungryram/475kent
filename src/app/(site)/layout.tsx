@@ -189,20 +189,14 @@ export default async function RootLayout({
               }
           `}
         </style>
-        {data?.appearances?.header?.menuLayout === 'simple' &&
-          <Navbar
+        <Navbar
             {...navbarSchema}
           />
-        }
-        {data?.appearances?.header?.menuLayout === 'wide' &&
-          <NavbarWide
-            {...navbarSchema}
-          />
-        }
         {children}
-        {/* <Footer
+        <Footer
           singleColumn={data?.appearances?.footer?.singleColumn}
           footerText={data.appearances?.footer?.footerText}
+          footerLogos={data.appearances?.footer?.footerLogos}
           company_name={data.profileSettings?.company_name}
           image={data.appearances?.footer?.footerLogo?.asset?.url}
           quickLinksHeading={data.appearances?.footer?.quickLinksHeading}
@@ -234,7 +228,7 @@ export default async function RootLayout({
           tiktok={data.profileSettings?.social?.tiktok}
           zillow={data.profileSettings?.social?.zillow}
           size={data.profileSettings?.social?.size}
-        /> */}
+        />
       </body>
     </html>
   )

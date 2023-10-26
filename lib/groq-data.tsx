@@ -93,6 +93,16 @@ export const appearance = groq`
           'lqip': metadata.lqip
         }
       },
+      footerLogos[] {
+        ...,
+        altText,
+        width,
+        link,
+          asset->{
+          url,
+          'lqip': metadata.lqip
+        }
+      },
       'quickLinks': quickLinks[]{
         newTab,
         _key,

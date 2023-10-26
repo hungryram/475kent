@@ -6,12 +6,6 @@ export default defineType({
     type: 'document',
     fields: [
         {
-            title: 'Fact Sheet',
-            name: 'factSheet',
-            type: 'file',
-            description: 'Upload file (pdf)'
-        },
-        {
             title: 'Availabilities',
             name: 'avail',
             type: 'array',

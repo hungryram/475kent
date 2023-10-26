@@ -55,7 +55,6 @@ export default function Hero({
                     priority={true}
                 />
             }
-            <div className="absolute inset-0" style={imageOverlay}></div>
             {(content || primaryButtonLink || secondaryButtonLink) && (
                 <div className={`container ${Styles.heroInnerContainer}`}>
                     <div style={{

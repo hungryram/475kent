@@ -118,8 +118,27 @@ export default defineType({
                 },
                 {
                     title: 'Footer Logo',
-                    name: 'footerLogo',
-                    type: 'image'
+                    name: 'footerLogos',
+                    type: 'array',
+                    of: [
+                        {
+                            title: 'Footer Image',
+                            name: 'footerImage',
+                            type: 'object',
+                            fields: [
+                                {
+                                    title: 'Logo',
+                                    name: 'logo',
+                                    type: 'image'
+                                },
+                                {
+                                    title: 'Alt Text',
+                                    name: 'altText',
+                                    type: 'string'
+                                }
+                            ]
+                        }
+                    ]
                 },
                 {
                     title: 'Footer Text',

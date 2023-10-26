@@ -4,7 +4,8 @@ import ReactMapGL, { Marker, Popup } from 'react-map-gl'
 import 'mapbox-gl/dist/mapbox-gl.css';
 import HeaderSection from './header-section';
 import { useState } from 'react'
-import { FaMapMarker, FaMapMarkerAlt } from "react-icons/fa"
+import { AiFillStar } from "react-icons/ai"
+import { Disclosure, Transition } from '@headlessui/react'
 
 interface Props {
   content: string;
@@ -18,6 +19,8 @@ interface Props {
   backgroundStyles: any;
   mapNames: any;
   condo: any;
+  paddingTop: string;
+  paddingBottom: string;
 }
 
 export default function Map({
@@ -32,6 +35,8 @@ export default function Map({
   secondaryButtonText,
   secondaryButtonStyle,
   condo,
+  paddingTop,
+  paddingBottom,
 }: Props) {
 
   const center = { latitude: condo?.lat ?? 40.77917794466556, longitude: condo?.lng ?? -73.97726940898283 }
@@ -49,15 +54,69 @@ export default function Map({
     setViewport({
       latitude: item.location.lat,
       longitude: item.location.lng,
-      zoom: 15
+      zoom: 17
     })
   }
 
-  console.log(center)
+  const styles = {
+    paddingTop: paddingTop ?? '5rem',
+    paddingBottom: paddingBottom ?? '5rem',
+  }
+
+  const allStyles = { ...backgroundStyles, ...styles }
+
+
+  const DisclosureMap = ({ name }: {
+    name: string
+  }) => {
+    return (
+      <div>
+        <Disclosure>
+          <Disclosure.Button className="w-full text-left py-6 border-b border-black hover:bg-slate-200">
+            <div>
+              <h3 className="gradient-heading text-2xl font-extrabold">{name}</h3>
+            </div>
+          </Disclosure.Button>
+          <Transition
+            enter="transition duration-300 ease-out transform"
+            enterFrom="translate-y-[-10%] opacity-0"
+            enterTo="translate-y-0 opacity-100"
+            leave="transition duration-200 ease-in transform"
+            leaveFrom="translate-y-0 opacity-100"
+            leaveTo="translate-y-[-10%] opacity-0"
+          >
+            <Disclosure.Panel>
+              <ul className="h-full columns-2 lg:ml-10 ml-0">
+                {mapNames?.map((item: any, i: number) => {
+                  return (
+                    <>
+                      {item?.category === name &&
+                        <li
+                          key={i}
+                          className={`flex flex-col cursor-pointer hover:text-[#00aaeb]`}
+                          onClick={() => renderLocation(item)}
+                        >
+
+                          <h2>{i++}. {item.neighborhoodName}</h2>
+                          <div>
+                            {item?.subtitle && <span>{item.subtitle}</span>}
+                          </div>
+                        </li>
+                      }
+                    </>
+                  )
+                })}
+              </ul>
+            </Disclosure.Panel>
+          </Transition>
+        </Disclosure>
+      </div>
+    )
+  }
 
   return (
     <>
-      <div className="section" style={backgroundStyles}>
+      <div style={allStyles}>
         <div className="container">
           {(content || primaryButtonLink || secondaryButtonLink) && (
             <HeaderSection
@@ -73,24 +132,15 @@ export default function Map({
               secondaryButtonStyle={secondaryButtonStyle}
             />
           )}
-          <div className="mt-20">
-            <div>
-              <div className="w-full h-[30rem]">
+          <div className="mt-20 lg:flex gap-6">
+            <div className="lg:w-1/2">
+              <div className="w-full h-[35rem]">
                 <ReactMapGL
                   mapStyle="mapbox://styles/mapbox/light-v10"
                   mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
                   {...viewport}
                   onMove={evt => setViewport(evt.viewState)}
                 >
-                  {condo?.lng &&
-                    <Marker
-                      longitude={condo?.lng}
-                      latitude={condo?.lat}
-                      offset={[-20, -10]}
-                    >
-                      <FaMapMarkerAlt className="text-4xl accent animate-pulse" />
-                    </Marker>
-                  }
                   {mapNames ?
                     mapNames?.map((item: any, i: any) => {
                       return (
@@ -98,12 +148,14 @@ export default function Map({
                           <Marker
                             longitude={item.location.lng}
                             latitude={item.location.lat}
-                            offset={[-20, -10]}
+                          // offset={[-20, -10]}
                           >
                             <div
                               onClick={() => renderLocation(item)}
                             >
-                              <FaMapMarkerAlt className="text-2xl secondary-accent cursor-pointer" />
+                              {item?.isCondo ? <AiFillStar className="text-5xl cursor-pointer" /> : (
+                                <div className={`w-6 h-6 hover:w-7 hover:h-7 duration-200 transition-all rounded-full text-white flex items-center justify-center bg-black cursor-pointer ${item?.category === 'Parks' && 'bg-slate-700'} ${item?.category === 'Shopping' && 'bg-purple-600'} ${item?.category === 'Dining' && 'bg-yellow-600'} ${item?.category === 'Convenience' && 'bg-orange-400'} ${item?.category === 'Fitness' && 'bg-red-600'} ${item?.category === 'Recreation' && 'bg-blue-500'}`} >{i++}</div>
+                              )}
                             </div>
                           </Marker>
                           {marker === item ?
@@ -128,28 +180,13 @@ export default function Map({
                 </ReactMapGL>
               </div>
             </div>
-            {/* <div className="md:w-1/2 relative h-full overflow-auto py-4 md:py-0">
-              {mapNames ?
-                <ul className="h-full">
-                  {mapNames.map((item, i) => {
-                    return (
-                      <li
-                        key={i}
-                        className={`content flex flex-col p-4 hover:bg-white/10 rounded-sm my-2 ${marker === item ? '' : 'hidden'}`}
-                        onClick={() => renderLocation(item)}
-                      >
-
-                        <h2 className={`text-2xl`}>{item.neighborhoodName}</h2>
-                        <div>
-                          {item?.category && <span>{item.category}</span>}
-                          {item?.subtitle && <span>{item.subtitle}</span>}
-                        </div>
-                      </li>
-                    )
-                  })}
-                </ul>
-                : null}
-            </div> */}
+            <div className="lg:w-1/2 relative h-full overflow-auto py-4 md:py-0">
+              <DisclosureMap name="Recreation" />
+              <DisclosureMap name="Shopping" />
+              <DisclosureMap name="Dining" />
+              <DisclosureMap name="Fitness" />
+              <DisclosureMap name="Transportation" />
+            </div>
           </div>
         </div>
       </div>

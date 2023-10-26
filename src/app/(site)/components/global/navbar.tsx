@@ -178,9 +178,11 @@ export default function Example({
           </div>
           {!hideCta && ctaLinking &&
             <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-              <Link href={ctaLinking ?? '/'} className="primary-button">
-                {ctaLink?.text} <span aria-hidden="true">&rarr;</span>
-              </Link>
+              <div className="buttonWrapper">
+                <Link href={ctaLinking ?? '/'} className="primary-button block">
+                  {ctaLink?.text}
+                </Link>
+              </div>
             </div>
           }
         </nav>

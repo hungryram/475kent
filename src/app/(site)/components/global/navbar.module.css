@@ -1,7 +1,12 @@
 .header {
     @apply inset-x-0 z-50 lg:block hidden;
-    background-color: var(--header-background-color);
+    /* background-color: var(--header-background-color); */
     color: var(--header-navigation-color);
+    background-image: url('https://cdn.sanity.io/images/oub3uazf/production/2cc2eb1a11aeaec0ce7efb554ecacba3e005b95e-4752x2984.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+
 }
 
 .stickyHeader {
