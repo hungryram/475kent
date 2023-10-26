@@ -61,7 +61,7 @@ export default function Example({
     (ctaLink?.externalUrl && `${ctaLink?.externalUrl}`)
 
   // Sets logo condition based on scroll events. When scrolling, logo decreases by 30%
-  const logoScroll = scroll ? (logoWidth ?? '200') * 0.7 : logoWidth ?? '200';
+  // const logoScroll = scroll ? (logoWidth ?? '200') * 0.7 : logoWidth ?? '200';
 
   // Sets mobile logo condition based on scroll events. When scrolling, logo decreases by 30%
   const mobileLogoScroll = scroll ? (mobileLogoWidth ?? '140') * 0.7 : mobileLogoWidth ?? '140';
@@ -75,7 +75,7 @@ export default function Example({
               {logo ?
                 <Image
                   src={logo}
-                  width={logoScroll}
+                  width={logoWidth}
                   height={10}
                   alt={company_name}
                   className="shrink-0"
