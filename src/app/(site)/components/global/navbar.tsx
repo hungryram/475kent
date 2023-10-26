@@ -305,16 +305,14 @@ export default function Example({
                 {ctaLinking &&
                   <div className="mb-6">
                     <Disclosure.Button as={Link} href={ctaLinking ?? '/'} className="primary-button block text-center mx-4">
-                      {ctaLink?.text} <span aria-hidden="true">&rarr;</span>
+                      {ctaLink?.text}
                     </Disclosure.Button>
                   </div>
                 }
-                <div className="px-4">
-                  <div className="items-center space-y-3 opacity-80 grid grid-cols-1">
-                    {email && <a href={`mailto:${email}`} className="text-sm"><span className="font-semibold">Email:</span> {email}</a>}
-                    {phone && <a href={`tel:${phone}`} className="text-sm"><span className="font-semibold">Direct:</span> {phone}</a>}
-                    {office && <a href={`tel:${office}`} className="text-sm"><span className="font-semibold">Office:</span> {office}</a>}
-                  </div>
+                <div className="mb-6">
+                  <Disclosure.Button as={Link} href={ctaLinking ?? '/'} className="primary-button block text-center mx-4">
+                    Apply
+                  </Disclosure.Button>
                 </div>
               </div>
             </Disclosure.Panel>

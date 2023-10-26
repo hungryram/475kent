@@ -21,8 +21,13 @@ export default defineType({
                             type: 'string',
                          },
                         {
-                            title: 'Bed/Bath',
-                            name: 'bedBath',
+                            title: 'Bed',
+                            name: 'bed',
+                            type: 'string',
+                        },
+                        {
+                            title: 'Bath',
+                            name: 'bath',
                             type: 'string',
                         },
                         {
@@ -32,23 +37,18 @@ export default defineType({
                             type: 'string',
                         },
                         {
-                            title: 'CC',
-                            name: 'cc',
-                            type: 'string',
-                        },
-                        {
-                            title: 'RE TAX',
-                            name: 'retax',
-                            type: 'string',
-                        },
-                        {
-                            title: 'Int/Ext SF',
-                            name: 'intExtSf',
+                            title: 'SF',
+                            name: 'sf',
                             type: 'string',
                         },
                         {
                             title: 'Exposure',
                             name: 'exposure',
+                            type: 'string',
+                        },
+                        {
+                            title: 'Move in Date',
+                            name: 'moveInDate',
                             type: 'string',
                         },
                         {
