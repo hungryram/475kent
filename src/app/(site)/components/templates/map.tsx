@@ -86,14 +86,14 @@ export default function Map({
             leaveTo="translate-y-[-10%] opacity-0"
           >
             <Disclosure.Panel>
-              <ul className="h-full columns-2 lg:ml-10 ml-0">
+              <ul className="h-full columns-2 lg:ml-4 ml-0 mt-6">
                 {mapNames?.map((item: any, i: number) => {
                   return (
                     <>
                       {item?.category === name &&
                         <li
                           key={i}
-                          className={`flex flex-col cursor-pointer hover:text-[#00aaeb]`}
+                          className={`text-left cursor-pointer hover:text-[#9c623e]`}
                           onClick={() => renderLocation(item)}
                         >
 

@@ -26,6 +26,11 @@ export default defineType({
                             type: 'string',
                         },
                         {
+                            title: 'Is Condo',
+                            name: 'isCondo',
+                            type: 'boolean',
+                        },
+                        {
                             title: 'Category',
                             name: 'category',
                             type: 'string',
