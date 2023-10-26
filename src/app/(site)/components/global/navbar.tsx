@@ -187,17 +187,6 @@ export default function Example({
       <Disclosure as="nav" className={`${Styles.mobileHeaderMenu} ${scroll ? Styles.stickyHeader : '-top-52'} ease-in-out transition-all duration-700 ${enableTransparent ? 'absolute left-0 right-0 z-50 top-0' : 'shadow'}`}>
         {({ open }) => (
           <>
-            {enableTopHeader &&
-              <div className={`${Styles.topHeader} ${scroll && 'hidden'}`}>
-                <div className={ctaLinking ? 'flex items-center space-x-6 h-full justify-end' : 'py-4'}>
-                  {ctaLinking &&
-                    <Link href={ctaLinking ?? '/'} className="h-full px-8 py-2 font-normal">
-                      {ctaLink?.text} <span aria-hidden="true">&rarr;</span>
-                    </Link>
-                  }
-                </div>
-              </div>
-            }
             <div className="mx-auto max-w-7xl py-2 px-4 sm:px-6 lg:px-8">
               <div className="flex justify-between">
                 <div className="flex items-center">
@@ -247,7 +236,7 @@ export default function Example({
                         {({ open }) => (
                           <>
                             <Popover.Button
-                              className={'group rounded-md inline-flex items-center outline-non'}
+                              className={'group rounded-md inline-flex items-center outline-none'}
                             >
                               <span className={Styles.navLinks}>{link?.text}</span>
                               <ChevronDownIcon
@@ -294,7 +283,7 @@ export default function Example({
                     )
                   } else {
                     return (
-                      <Disclosure.Button as={Link} href={menuLinks ?? '/'} className={Styles.navLinks} target={link.newTab && '_blank'} key={link._key}>
+                      <Disclosure.Button as={Link} href={menuLinks ?? '/'} className={`${Styles.navLinks} border-b border-black`} target={link.newTab && '_blank'} key={link._key}>
                         {link.text}
                       </Disclosure.Button>
                     )

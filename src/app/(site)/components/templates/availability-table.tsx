@@ -8,11 +8,11 @@ import Animate from "./animate"
 const BedroomLayout = ({ bedroom, availabilities }: { bedroom: string, availabilities: any }) => {
     return (
         <>
-            <tr className="border-t border-gray-200">
+            <tr className="border-gray-400 border-b">
                 <th
                     colSpan={8}
                     scope="colgroup"
-                    className="bg-[#fff] py-2 pl-4 pr-3 text-left font-semibold sm:pl-3 uppercase text-black"
+                    className="bg-[#eae8db] py-2 pl-4 pr-3 text-left font-semibold sm:pl-3 uppercase text-black"
                 >
                     {bedroom === "0" ? 'Studio' : bedroom + "-Bedrooms"}
                 </th>
@@ -124,7 +124,7 @@ export default function AvailabilityTable({
                         <ul role="list" className="grid grid-cols-1 gap-x-6 gap-y-8 lg:grid-cols-3 md:grid-cols-2 xl:gap-x-8">
                             {availabilities?.avail?.map((node: any) => (
                                 <li key={node._key} className="overflow-hidden rounded-sm border border-gray-200">
-                                    <div className="flex items-center gap-x-4 border-b-slate-900 border-b bg-white p-6">
+                                    <div className="flex items-center gap-x-4 border-b-slate-900 border-b bg-[#eae8db] p-6">
                                         <div className="font-medium leading-6 text-gray-900  flex-1">{node?.residence}</div>
                                         <div className="justify-end">{node?.bed === "0" ? 'Studio' : ` ${node.bed}-bedroom`}</div>
                                     </div>

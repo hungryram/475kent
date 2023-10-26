@@ -160,13 +160,13 @@ const GallerySwiper = ({
                         <div className="swiper-button image-swiper-button-next absolute right-0 top-1/2 flex items-center justify-center z-50">
                             <BsChevronRight className="text-3xl" style={{
                                 color: navigationColors,
-                                backgroundColor: '#ffffff',
+                                backgroundColor: '#E5E2D7',
                             }} />
                         </div>
                         <div className="swiper-button image-swiper-button-prev absolute left-0 top-1/2 flex items-center justify-center z-50">
                             <BsChevronLeft className="text-3xl" style={{
                                 color: navigationColors,
-                                backgroundColor: '#ffffff',
+                                backgroundColor: '#E5E2D7',
                             }} />
                         </div>
                         {images?.map((image: any, index: number) => (

@@ -22,7 +22,7 @@
 }
 
 .navLinks {
-    @apply font-semibold leading-6 py-2 block rounded-md lg:inline-flex items-center outline-none;
+    @apply leading-6 py-2 block lg:inline-flex items-center outline-none;
 }
 
 .desktopDropDown {

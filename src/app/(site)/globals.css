@@ -47,7 +47,7 @@ body {
 }
 
 .primary-button {
-  @apply p-2 font-light shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-gradient-to-r from-[#94542b] to-[#fcbf99];
+  @apply p-2 font-light shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-gradient-to-r from-[#95562c] to-[#bf8551];
   /* background-color: var(--primary-button-background); */
   color: var(--primary-button-text);
   border-radius: var(--button-radius);
@@ -58,7 +58,7 @@ body {
 }
 
 .buttonWrapper {
-  @apply p-[2px] border-[#bf8551] border;
+  @apply p-[3px] border-[#bf8551] border-2;
 }
 
 .secondary-button {
