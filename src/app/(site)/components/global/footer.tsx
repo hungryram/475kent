@@ -99,7 +99,7 @@ export default function Footer({
                   <a href={`tel:${phone_number}`}>{phone_number}</a>
                 </li>
                 <li className="inline-block px-4">
-                  <a href={`${googleBusiness}`}>{address} {city}, {state} {zip_code}</a>
+                  <a href={`https://www.google.com/maps/place/${address}+${city}+${state}+${zip_code}`} target="_blank">{address} {city}, {state} {zip_code}</a>
                 </li>
               </ul>
             </div>

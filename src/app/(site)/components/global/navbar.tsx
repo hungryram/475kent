@@ -173,9 +173,9 @@ export default function Example({
                 </Link>
               </div>
               <div className="buttonWrapper">
-                <Link href={ctaLinking ?? '/'} className="primary-button block">
+                <a href={'https://cdn.sanity.io/files/oub3uazf/production/83994130a028d54b122f5f02e52febd47c4fcb2c.pdf'} target="_blank" className="primary-button block">
                   Apply
-                </Link>
+                </a>
               </div>
             </div>
           }
@@ -299,7 +299,7 @@ export default function Example({
                   </div>
                 }
                 <div className="mb-6">
-                  <Disclosure.Button as={Link} href={ctaLinking ?? '/'} className="primary-button block text-center mx-4">
+                  <Disclosure.Button as={Link} href={'https://cdn.sanity.io/files/oub3uazf/production/83994130a028d54b122f5f02e52febd47c4fcb2c.pdf'} target="_blank" className="primary-button block text-center mx-4">
                     Apply
                   </Disclosure.Button>
                 </div>

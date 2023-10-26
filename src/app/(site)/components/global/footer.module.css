@@ -1,5 +1,6 @@
 .footer {
     background-color: var(--footer-background-color);
+    @apply pb-10
 }
 
 .footer h3 {
