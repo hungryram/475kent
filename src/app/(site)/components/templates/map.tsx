@@ -68,15 +68,16 @@ export default function Map({
   const allStyles = { ...backgroundStyles, ...styles }
 
 
-  const DisclosureMap = ({ name }: {
-    name: string
+  const DisclosureMap = ({ name, color }: {
+    name: string,
+    color: string
   }) => {
     return (
       <div>
         <Disclosure>
           <Disclosure.Button className="w-full text-left py-6 border-b border-black hover:bg-slate-200">
-            <div>
-              <h3 className="gradient-heading text-2xl font-extrabold">{name}</h3>
+            <div className="flex items-center">
+              <div className={`${color} w-4 h-4 mr-4`} /><h3 className="gradient-heading text-2xl font-extrabold">{name}</h3>
             </div>
           </Disclosure.Button>
           <Transition
@@ -156,7 +157,7 @@ export default function Map({
                               onClick={() => renderLocation(item)}
                             >
                               {item?.isCondo ? <img src="https://cdn.sanity.io/images/oub3uazf/production/3894f4a03a15107f3393d4c6f07a46b331844457-63x54.png" width="50" className="cursor-pointer" /> : (
-                                <div className={`w-6 h-6 hover:w-7 hover:h-7 duration-200 transition-all rounded-full text-white flex items-center justify-center bg-[#94542b] cursor-pointer`} >{i++}</div>
+                                <div className={`w-6 h-6 hover:w-7 hover:h-7 duration-200 transition-all rounded-full text-white flex items-center justify-center cursor-pointer ${item?.category === 'Shopping' && 'bg-purple-600'} ${item?.category === 'Dining' && 'bg-yellow-600'} ${item?.category === 'Transportation' && 'bg-orange-400'} ${item?.category === 'Fitness' && 'bg-red-600'} ${item?.category === 'Recreation' && 'bg-blue-500'}`} >{i++}</div>
                               )}
                             </div>
                           </Marker>
@@ -183,11 +184,11 @@ export default function Map({
               </div>
             </div>
             <div className="lg:w-1/2 relative h-full overflow-auto py-4 md:py-0">
-            <DisclosureMap name="Shopping" />
-              <DisclosureMap name="Dining" />
-              <DisclosureMap name="Recreation" />
-              <DisclosureMap name="Fitness" />
-              <DisclosureMap name="Transportation" />
+              <DisclosureMap name="Shopping" color="bg-purple-600"/>
+              <DisclosureMap name="Dining" color="bg-yellow-600"/>
+              <DisclosureMap name="Recreation" color="bg-blue-500"/>
+              <DisclosureMap name="Fitness" color="bg-red-600"/>
+              <DisclosureMap name="Transportation" color="bg-orange-400"/>
             </div>
           </div>
         </div>
