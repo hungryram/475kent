@@ -13,7 +13,7 @@ const BedroomLayout = ({ bedroom, availabilities }: { bedroom: string, availabil
                 <th
                     colSpan={8}
                     scope="colgroup"
-                    className="bg-[#eae8db] text-left font-semibold uppercase text-black py-3 pl-2"
+                    className="bg-[#eae8db] text-left font-semibold uppercase text-black py-1 pl-2"
                 >
                     {bedroom === "0" ? 'Studio' : bedroom + "-Bedrooms"}
                 </th>
@@ -37,7 +37,7 @@ const BedroomLayout = ({ bedroom, availabilities }: { bedroom: string, availabil
                                     {node?.image ?
                                         <a href={urlForImage(node?.image).url()} target="_blank">
                                             <span className="sr-only">View floor plan for {node?.residence}</span>
-                                            <AiFillFilePdf className="text-lg accent"/>
+                                            <AiFillFilePdf className="text-lg accent" />
                                         </a>
                                         :
                                         <span>—<span className="sr-only">No floor plans available for {node?.residence}</span></span>
@@ -156,41 +156,47 @@ export default function AvailabilityTable({
                                         <div className="justify-end">{node?.bed === "0" ? 'Studio' : ` ${node.bed}-bedroom`}</div>
                                     </div>
                                     <dl className="-my-3 divide-y divide-gray-100 px-6 py-4 leading-6">
-                                        <div className="flex justify-between gap-x-4 py-3">
+                                        <div className="flex justify-between gap-x-4 py-1">
                                             <dt className={Styles.tableData}>Price</dt>
                                             <dd className="flex items-start gap-x-2">
                                                 <div className="text-gray-700">{node?.price ? node?.price : '—'}</div>
                                             </dd>
                                         </div>
-                                        <div className="flex justify-between gap-x-4 py-3">
+                                        <div className="flex justify-between gap-x-4 py-1">
                                             <dt className={Styles.tableData}>Bath</dt>
                                             <dd className="text-gray-700">
                                                 <span>{node?.bath ? node?.bath : '—'}</span>
                                             </dd>
                                         </div>
-                                        <div className="flex justify-between gap-x-4 py-3">
+                                        <div className="flex justify-between gap-x-4 py-1">
                                             <dt className={Styles.tableData}>SF</dt>
                                             <dd className="flex items-start gap-x-2">
                                                 <div className="text-gray-700">{node?.sf ? node?.sf : '—'}</div>
                                             </dd>
                                         </div>
-                                        <div className="flex justify-between gap-x-4 py-3">
+                                        <div className="flex justify-between gap-x-4 py-1">
                                             <dt className={Styles.tableData}>Exposure</dt>
                                             <dd className="flex items-start gap-x-2">
                                                 <div className="text-gray-700">{node?.exposure ? node?.exposure : '—'}</div>
                                             </dd>
                                         </div>
-                                        <div className="flex justify-between gap-x-4 py-3">
+                                        <div className="flex justify-between gap-x-4 py-1">
                                             <dt className={Styles.tableData}>Move In Date</dt>
                                             <dd className="flex items-start gap-x-2">
                                                 <div className="text-gray-700">{node?.moveInDate ? node?.moveInDate : '—'}</div>
                                             </dd>
                                         </div>
-                                        <div className="flex justify-between gap-x-4 py-3">
-                                            <dt className={Styles.tableData}>View Listing</dt>
-                                            <dd className="flex items-start gap-x-2">
-                                                <div className="text-gray-700"><a href={`/inquire`} className="flex items-center" target="_blank">Schedule Tour</a></div>
-                                            </dd>
+                                        <div className="flex justify-between gap-x-4 py-1">
+                                            <dt className={Styles.tableData}>View Floor Plan</dt>
+                                            <dd className="flex items-center gap-x-2">
+                                                {node?.image ?
+                                                    <a href={urlForImage(node?.image).url()} target="_blank">
+                                                        <span className="sr-only">View floor plan for {node?.residence}</span>
+                                                        <AiFillFilePdf className="text-lg accent" />
+                                                    </a>
+                                                    :
+                                                    <span>—<span className="sr-only">No floor plans available for {node?.residence}</span></span>
+                                                }                                            </dd>
                                         </div>
                                     </dl>
                                 </li>
