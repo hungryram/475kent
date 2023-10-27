@@ -57,8 +57,8 @@ export default function ContactPage({
                         alt={altText}
                         placeholder={blurData ? 'blur' : 'empty'}
                         blurDataURL={blurData}
-                        width={800}
-                        height={800}
+                        width={700}
+                        height={500}
                     />
                 </div>
                 <div className="container">

@@ -1,3 +1,7 @@
 .availabilityHeading {
-    @apply px-3 py-3.5 text-left text-sm font-semibold text-gray-900
+    @apply py-3.5 text-left text-sm font-semibold text-gray-900
+}
+
+.tableData {
+    @apply text-black py-3
 }

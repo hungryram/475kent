@@ -47,15 +47,20 @@ body {
 }
 
 .primary-button {
-  @apply p-2 font-light shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-gradient-to-r from-[#95562c] to-[#bf8551];
-  /* background-color: var(--primary-button-background); */
+  @apply p-2 font-light shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2;
+  background-color: transparent;
   color: var(--primary-button-text);
   border-radius: var(--button-radius);
   padding-left: var(--button-x-padding);
   padding-right: var(--button-x-padding);
   padding-top: var(--button-y-padding);
   padding-bottom: var(--button-y-padding);
+  border: 2px solid transparent; /* Set a transparent border to create space for the gradient border */
+  background-clip: content-box; /* Clip the background to the content box */
+  border-image: linear-gradient(to right, #95562c, #bf8551); /* Create the gradient border using border-image */
+  border-image-slice: 1; /* Slice the border image */
 }
+
 
 .buttonWrapper {
   @apply p-[3px] border-[#bf8551] border-2;
@@ -72,6 +77,14 @@ body {
   padding-bottom: var(--button-y-padding);
 }
 
+.customGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem; /* Adjust the gap as needed */
+  place-items: center; /* Center both horizontally and vertically */
+  text-align: left
+}
+
 /* CONTENT */
 body .content h1, 
 body .content h2, 
@@ -84,6 +97,8 @@ body .content h6 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+
 .content h1 {
   @apply md:text-5xl text-3xl;
 }

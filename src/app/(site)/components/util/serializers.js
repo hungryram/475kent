@@ -1,6 +1,7 @@
 import { urlForImage } from "../../../../../sanity/lib/image"
 import getYouTubeID from 'get-youtube-id'
 import Youtube from "react-youtube"
+import ContentEditor from "./content-editor";
 
 const serializers = {
     types: {
@@ -28,6 +29,24 @@ const serializers = {
                 </div>
             )
         },
+        grid: ({ value }) => {
+            return (
+                <>
+                    <div className="grid md:grid-cols-2 grid-cols-1 mx-auto justify-center text-left">
+                        {value?.gridBlock?.map((node, i) => {
+                            return (
+                                <div key={i}>
+                                    <ContentEditor
+                                        content={node?.content}
+                                    />
+                                </div>
+                            );
+                        })}
+                    </div>
+
+                </>
+            )
+        }
     },
     marks: {
         link: ({ value, children }) => {

@@ -28,23 +28,25 @@ export default function ContentSimple({
 
     return (
         <Animate>
-            <div className="content" style={allStyles}>
-                <div className={`container`}>
-                    {layoutType === 'twoColumn' || 'threeColumn' &&
-                        <h2>{heading}</h2>
-                    }
-                    <div className={`mx-auto
-                ${layoutType === 'simpleFullWidth' && 'container'}
-                ${layoutType === 'narrowContainer' && 'max-w-3xl'}
-                ${layoutType === 'twoColumn' && 'md:columns-2'}
-                ${layoutType === 'threeColumn' && 'md:columns-3'}
-            `}>
-                        <ContentEditor
-                            content={content}
-                        />
-                    </div>
-                </div>
-            </div>
+<div className="content" style={allStyles}>
+    <div className={`container`}>
+        {layoutType === 'twoColumn' || 'threeColumn' &&
+            <h2>{heading}</h2>
+        }
+        <div className={`
+            mx-auto
+            ${layoutType === 'simpleFullWidth' && 'container'}
+            ${layoutType === 'narrowContainer' && 'max-w-3xl'}
+            ${layoutType === 'twoColumn' && 'md:grid md:grid-cols-2'} 
+            ${layoutType === 'threeColumn' && 'md:grid-cols-3'}
+        `}>
+            <ContentEditor content={content} />
+        </div>
+    </div>
+</div>
+
+
+
         </Animate>
     )
 }

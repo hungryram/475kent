@@ -101,6 +101,7 @@ import { AiOutlineFontColors } from "react-icons/ai"
           },
         ]
       },
+      {type: 'grid'},
       {type: 'youtube'},
       {type: 'coding'},
     ],

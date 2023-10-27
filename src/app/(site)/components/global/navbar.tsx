@@ -167,16 +167,12 @@ export default function Example({
           </div>
           {!hideCta && ctaLinking &&
             <div className="hidden lg:flex space-x-8">
-              <div className="buttonWrapper">
                 <Link href={ctaLinking ?? '/'} className="primary-button block">
                   {ctaLink?.text}
                 </Link>
-              </div>
-              <div className="buttonWrapper">
                 <a href={'https://cdn.sanity.io/files/oub3uazf/production/434ea8d1b05c233b329edd0ed46fd9378ba41bc8.pdf'} target="_blank" className="primary-button block">
                   Apply
                 </a>
-              </div>
             </div>
           }
         </nav>

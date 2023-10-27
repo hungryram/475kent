@@ -193,14 +193,12 @@ export default function FormBuilder({ formSchema }: FormBuilderProps) {
           </div>
         }
         <div className="flex justify-start mt-6">
-          <div className="buttonWrapper">
             <button type="submit" className="primary-button" style={{
               backgroundColor: formSchema?.buttonBackgroundColor?.hex,
               color: formSchema?.buttonTextColor?.hex
             }}>
               {formSchema?.buttonLabel ?? 'Submit'}
             </button>
-          </div>
         </div>
       </form>
     </div>

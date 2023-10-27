@@ -47,6 +47,7 @@ import secondaryButtonObject from './sanity/schemas/objects/secondary-button'
 import codeBlockObject from './sanity/schemas/objects/codeBlock'
 import backgroundStylesObject from './sanity/schemas/objects/background-style'
 import formBuilderObject from './sanity/schemas/objects/form-builder'
+import gridObject from './sanity/schemas/objects/grid'
 
 //  PAGEBUILDER
 import heroBuilder from './sanity/schemas/pagebuilder/hero'
@@ -108,6 +109,7 @@ export default defineConfig({
       navigationObject,
       codeBlockObject,
       formBuilderObject,
+      gridObject,
       // PAGEBUILDER
       heroBuilder,
       codeBuilder,
