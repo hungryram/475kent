@@ -1,7 +1,5 @@
-import Image from "next/image";
 import Styles from "./hero.module.css"
 import HeaderSection from "./header-section";
-import Animate from "./animate";
 
 interface Props {
     content: string[];
@@ -37,32 +35,20 @@ export default function Hero({
     imageHeight
 }: Props) {
 
-    const imageOverlay = {
-        background:
-            `rgba(${imageOverlayColor?.rgb?.r ?? '0'}, ${imageOverlayColor?.rgb?.g ?? '0'}, ${imageOverlayColor?.rgb?.b ?? '0'}, ${imageOverlayColor?.rgb?.a ?? '0.2'})`,
-    };
-
     return (
-        <Animate>
-            <div className={`relative isolate inset-0 ${imageHeight} flex items-center`}>
-                {image &&
-                    <Image
-                        src={image}
-                        alt={altText}
-                        placeholder={blurData ? 'blur' : 'empty'}
-                        blurDataURL={blurData}
-                        className={Styles.heroImage}
-                        fill={true}
-                        sizes="100vw"
-                        priority={true}
-                    />
-                }
+            <div className={`${imageHeight} bg-fixed bg-center`} style={{
+                backgroundImage: `url(${image})`,
+                backgroundPosition: 'centered',
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover'
+            }}>
                 {(content || primaryButtonLink || secondaryButtonLink) && (
-                    <div className={`container ${Styles.heroInnerContainer}`}>
-                        <div style={{
-                            color: textColor
-                        }}>
-
+                    <div className={`container ${Styles.heroInnerContainer} relative`}>
+                        <div
+                            style={{
+                                color: textColor
+                            }}
+                        >
                             <HeaderSection
                                 content={content}
                                 textAlign={textAlign}
@@ -77,9 +63,7 @@ export default function Hero({
                             />
                         </div>
                     </div>
-                )
-                }
+                )}
             </div>
-        </Animate>
     )
 }

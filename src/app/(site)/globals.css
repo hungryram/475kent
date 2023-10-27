@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--body-font);
   background-color: var(--website-body-color);
@@ -77,13 +81,6 @@ body {
   padding-bottom: var(--button-y-padding);
 }
 
-.customGrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem; /* Adjust the gap as needed */
-  place-items: center; /* Center both horizontally and vertically */
-  text-align: left
-}
 
 /* CONTENT */
 body .content h1, 
@@ -195,4 +192,23 @@ input[type="radio"]:checked {
 .footerContact li:not(:last-child):after {
   content: '|'; /* Add the pipe separator after all list items except the last one */
   margin-left: 10px; /* Adjust the spacing between the pipe separator and the text */
+}
+
+
+/* Add this CSS to your stylesheet */
+.parallax-container {
+  perspective: 1px;
+  overflow-x: hidden;
+}
+
+.parallax-inner {
+  transform: translateZ(0);
+  transition: transform 0.5s;
+}
+
+.parallax-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  z-index: -1; /* Place the image behind the content */
 }
