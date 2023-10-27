@@ -1,10 +1,12 @@
-import { defineType } from "sanity";
+import { defineType, defineField } from "sanity";
+import {copyPaste} from '@superside-oss/sanity-plugin-copy-paste'
 
 export default defineType({
   title: 'Contact Page',
   name: 'contactPage',
   type: 'object',
   fields: [
+    defineField(copyPaste),
     {
       title: 'Content',
       name: 'content',

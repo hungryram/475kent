@@ -16,6 +16,7 @@
     "@sanity/google-maps-input": "^3.0.1",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.10.0",
+    "@superside-oss/sanity-plugin-copy-paste": "^1.0.3",
     "@types/node": "20.1.0",
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",

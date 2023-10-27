@@ -153,7 +153,7 @@ export default function Map({
                             <div
                               onClick={() => renderLocation(item)}
                             >
-                              {item?.isCondo ? <AiFillStar className="text-5xl cursor-pointer" /> : (
+                              {item?.isCondo ? <img src="https://cdn.sanity.io/images/oub3uazf/production/3894f4a03a15107f3393d4c6f07a46b331844457-63x54.png" width="50" className="cursor-pointer" /> : (
                                 <div className={`w-6 h-6 hover:w-7 hover:h-7 duration-200 transition-all rounded-full text-white flex items-center justify-center bg-[#94542b] cursor-pointer`} >{i++}</div>
                               )}
                             </div>
@@ -181,9 +181,9 @@ export default function Map({
               </div>
             </div>
             <div className="lg:w-1/2 relative h-full overflow-auto py-4 md:py-0">
-              <DisclosureMap name="Recreation" />
-              <DisclosureMap name="Shopping" />
+            <DisclosureMap name="Shopping" />
               <DisclosureMap name="Dining" />
+              <DisclosureMap name="Recreation" />
               <DisclosureMap name="Fitness" />
               <DisclosureMap name="Transportation" />
             </div>
