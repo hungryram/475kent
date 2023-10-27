@@ -21,6 +21,7 @@ interface Props {
   condo: any;
   paddingTop: string;
   paddingBottom: string;
+  id: string;
 }
 
 export default function Map({
@@ -37,6 +38,7 @@ export default function Map({
   condo,
   paddingTop,
   paddingBottom,
+  id,
 }: Props) {
 
   const center = { latitude: condo?.lat ?? 40.77917794466556, longitude: condo?.lng ?? -73.97726940898283 }
@@ -116,7 +118,7 @@ export default function Map({
 
   return (
     <>
-      <div style={allStyles}>
+      <div style={allStyles} id={id}>
         <div className="container text-center">
           {(content || primaryButtonLink || secondaryButtonLink) && (
             <HeaderSection

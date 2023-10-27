@@ -48,6 +48,11 @@ export default defineType({
             hidden: ({ parent }) => parent?.layoutType === "banner" || parent?.layoutType === "ButtonRightTextLeft"
         },
         {
+            title: 'ID',
+            name: 'id',
+            type: 'string'
+        },
+        {
             title: 'Reverse Column',
             name: 'reverseColumn',
             type: 'boolean',

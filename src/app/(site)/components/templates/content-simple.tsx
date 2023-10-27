@@ -1,4 +1,5 @@
 import ContentEditor from "../util/content-editor"
+import Animate from "./animate"
 
 interface Props {
     content: any,
@@ -23,24 +24,27 @@ export default function ContentSimple({
         paddingBottom: paddingBottom ?? '5rem',
     }
 
-    const allStyles = {...backgroundStyles, ...styles}
+    const allStyles = { ...backgroundStyles, ...styles }
 
     return (
-        <div className="content" style={allStyles}>
-            <div className={`${layoutType === 'twoColumn' && 'container'}`}>
-                {layoutType === 'twoColumn' &&
-                    <h2>{heading}</h2>
-                }
-                <div className={`mx-auto 
+        <Animate>
+            <div className="content" style={allStyles}>
+                <div className={`container`}>
+                    {layoutType === 'twoColumn' || 'threeColumn' &&
+                        <h2>{heading}</h2>
+                    }
+                    <div className={`mx-auto
                 ${layoutType === 'simpleFullWidth' && 'container'}
                 ${layoutType === 'narrowContainer' && 'max-w-3xl'}
                 ${layoutType === 'twoColumn' && 'md:columns-2'}
+                ${layoutType === 'threeColumn' && 'md:columns-3'}
             `}>
-                    <ContentEditor
-                        content={content}
-                    />
+                        <ContentEditor
+                            content={content}
+                        />
+                    </div>
                 </div>
             </div>
-        </div>
+        </Animate>
     )
 }

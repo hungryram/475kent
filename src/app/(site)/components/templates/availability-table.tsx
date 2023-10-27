@@ -3,6 +3,7 @@ import { urlForImage } from "../../../../../sanity/lib/image"
 import Styles from './availability.module.css'
 import { MdOutlineOpenInNew } from "react-icons/md"
 import Animate from "./animate"
+import HeaderSection from "./header-section"
 
 
 const BedroomLayout = ({ bedroom, availabilities }: { bedroom: string, availabilities: any }) => {
@@ -65,20 +66,43 @@ export default function AvailabilityTable({
     image,
     residence,
     factSheet,
-    organizedLayout
+    organizedLayout,
+    backgroundStyles,
+    primaryButtonLink,
+    primaryButtonText,
+    primaryButtonStyle,
+    secondaryButtonLink,
+    secondaryButtonText,
+    secondaryButtonStyle,
+    textAlign,
+    content
 }: any) {
 
     return (
         <Animate>
             <div className="section">
-                <div>
+                <div className="container text-center">
+                    {(content || primaryButtonLink || secondaryButtonLink) && (
+                        <HeaderSection
+                            content={content}
+                            textAlign={textAlign}
+                            // PRIMARY
+                            buttonLink={primaryButtonLink}
+                            primaryButtonText={primaryButtonText}
+                            primaryButtonStyle={primaryButtonStyle}
+                            // SECONDARY
+                            secondaryButtonLink={secondaryButtonLink}
+                            secondaryButtonText={secondaryButtonText}
+                            secondaryButtonStyle={secondaryButtonStyle}
+                        />
+                    )}
                     <div className="container lg:block hidden">
                         {factSheet &&
                             <div className="my-10 text-center uppercase text-2xl italic underline">
                                 <a href={factSheet} target="_blank">View Fact Sheet</a>
                             </div>
                         }
-                        <table className="min-w-full accent">
+                        <table className="min-w-full accent mt-20">
                             <thead>
                                 <tr>
                                     <th

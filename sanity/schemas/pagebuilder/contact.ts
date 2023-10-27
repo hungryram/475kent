@@ -28,6 +28,11 @@ export default defineType({
       type: 'formBuilder'
     },
     {
+      title: 'ID',
+      name: 'id',
+      type: 'string'
+  },
+    {
       title: 'Color Options',
       name: 'background',
       type: 'backgroundOptions',

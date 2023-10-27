@@ -253,6 +253,7 @@ export default function Main({
                         <Map
                             key={section?._key}
                             content={section?.content}
+                            id={section?.id}
                             textAlign={section?.textAlign}
                             mapNames={allNeighborhood?.neighborhoods}
                             condo={allNeighborhood?.condo}
@@ -321,6 +322,7 @@ export default function Main({
                                     key={section?._key}
                                     textAlign={section?.textAlign}
                                     content={section?.content}
+                                    id={section?.id}
                                     {...settingsSchema}
 
                                 />
@@ -540,6 +542,7 @@ export default function Main({
                         <ContactPage
                             key={section?._key}
                             content={section?.content}
+                            id={section?.id}
                             image={section?.imageData?.asset?.url}
                             altText={section?.imageData?.asset?.altText}
                             blurData={section?.imageData?.asset?.lqip}

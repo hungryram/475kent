@@ -36,6 +36,7 @@ interface Props {
     zillow: any;
     hideContact: any;
     content: any;
+    id: string;
 }
 
 export default function ContactPage({
@@ -44,10 +45,11 @@ export default function ContactPage({
     image,
     altText,
     blurData,
-    content
+    content,
+    id
 }: Props) {
     return (
-        <div style={backgroundStyles}>
+        <div style={backgroundStyles} id={id}>
             <div className="relative overflow-hidden">
                 <div className="absolute -bottom-60 -right-60 -z-10">
                     <Image

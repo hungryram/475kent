@@ -14,6 +14,7 @@ interface Props {
   textAlign: string;
   paddingTop: string,
   paddingBottom: string
+  id: string;
 }
 
 export default function CallToActionBanner({
@@ -27,7 +28,8 @@ export default function CallToActionBanner({
   secondaryButtonStyle,
   paddingTop,
   paddingBottom,
-  textAlign
+  textAlign,
+  id
 }: Props) {
 
   const styles = {
@@ -39,7 +41,7 @@ export default function CallToActionBanner({
 
   return (
     <Animate>
-      <div style={allStyles}>
+      <div style={allStyles} id={id}>
         <div className="container">
           <div className="mx-auto max-w-4xl text-center">
             {(content || primaryButtonLink || secondaryButtonLink) ? (

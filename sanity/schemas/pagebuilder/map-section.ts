@@ -28,6 +28,11 @@ export default defineType({
             },
             initialValue: "text-center mx-auto justify-center"
           },
+          {
+            title: 'ID',
+            name: 'id',
+            type: 'string'
+        },
         {
             title: 'Primary Button',
             name: 'button',
