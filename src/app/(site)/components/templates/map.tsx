@@ -100,7 +100,7 @@ export default function Map({
                           onClick={() => renderLocation(item)}
                         >
 
-                          <h2>{i++}. {item.neighborhoodName}</h2>
+                          <h2 className="headingFont">{i++}. {item.neighborhoodName}</h2>
                           <div>
                             {item?.subtitle && <span>{item.subtitle}</span>}
                           </div>

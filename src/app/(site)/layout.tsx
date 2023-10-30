@@ -5,7 +5,7 @@ import './globals.css'
 import { appearance, mainLayoutProfile } from '../../../lib/groq-data'
 import { Metadata } from 'next';
 import GoogleAnalytics from './components/global/analytics'
-import { bodyFont } from '../fonts'
+import { HeadingFont, bodyFont } from '../fonts'
 import Pixel from './components/global/pixel'
 import NavbarWide from './components/global/navbar-wide'
 
@@ -134,7 +134,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
 
-      <body className={bodyFont.variable}>
+      <body className={`${bodyFont.variable} ${HeadingFont.variable}`}>
         {data?.profileSettings?.settings?.googleID &&
           <GoogleAnalytics GA_TRACKING_ID={data?.profileSettings?.settings?.googleID} />
         }
