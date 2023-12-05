@@ -153,7 +153,9 @@ export default function AvailabilityTable({
                         <ul role="list" className="grid grid-cols-1 gap-x-6 gap-y-8 lg:grid-cols-3 md:grid-cols-2 xl:gap-x-8">
                             {availabilities?.avail?.map((node: any) => (
                                 <li key={node._key} className="overflow-hidden rounded-sm border border-gray-200">
-                                    <div className="flex items-center gap-x-4 border-b-slate-900 border-b bg-[#eae8db] p-6">
+                                    <div className="flex items-center gap-x-4 border-b-slate-900 border-b bg-[#eae8db] p-6 relative">
+                                        {node?.status === "LEASED" && <div className="bg-black h-[2px] w-full left-0 right-0 absolute top-9"></div>}
+
                                         <div className="font-extrabold leading-6 text-gray-900 text-left flex-1">{node?.residence}</div>
                                         <div className="justify-end">{node?.bed === "0" ? 'Studio' : ` ${node.bed}-bedroom`}</div>
                                     </div>
@@ -186,6 +188,12 @@ export default function AvailabilityTable({
                                             <dt className={Styles.tableData}>Move In Date</dt>
                                             <dd className="flex items-start gap-x-2">
                                                 <div className="text-gray-700">{node?.moveInDate ? node?.moveInDate : '—'}</div>
+                                            </dd>
+                                        </div>
+                                        <div className="flex justify-between gap-x-4 py-1">
+                                            <dt className={Styles.tableData}>Status</dt>
+                                            <dd className="flex items-start gap-x-2">
+                                                <div className="text-gray-700">{node?.status ? node?.status : '—'}</div>
                                             </dd>
                                         </div>
                                         <div className="flex justify-between gap-x-4 py-1">
