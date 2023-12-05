@@ -22,7 +22,7 @@ const BedroomLayout = ({ bedroom, availabilities }: { bedroom: string, availabil
                 <>
                     {node?.bed === bedroom &&
                         <>
-                            <tr key={node.email} className="text-base text-left bg-[#E6E4D7]">
+                            <tr key={node.residence} className="text-base text-left bg-[#E6E4D7] relative">
                                 <td className="font-medium text-gray-900">
                                     {node.residence}
                                 </td>
@@ -43,6 +43,8 @@ const BedroomLayout = ({ bedroom, availabilities }: { bedroom: string, availabil
                                         <span>—<span className="sr-only">No floor plans available for {node?.residence}</span></span>
                                     }
                                 </td>
+                                {node?.status === "LEASED" && <td className="bg-black h-[1px] w-full left-0 right-0 absolute top-[1.5rem]"></td>}
+
                             </tr>
                         </>
                     }
