@@ -60,6 +60,7 @@ export default defineType({
                                     {title: 'Available', value: 'AVAILABLE'},
                                     {title: 'In Contract', value: 'IN CONTRACT'},
                                     {title: 'Sold', value: 'SOLD'},
+                                    {title: 'Leased', value: 'LEASED'},
                                 ]
                             }
                         },
