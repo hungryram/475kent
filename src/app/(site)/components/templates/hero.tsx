@@ -36,7 +36,7 @@ export default function Hero({
 }: Props) {
 
     return (
-            <div className={`${imageHeight} bg-fixed bg-center`} style={{
+            <div className={`${imageHeight} md:bg-fixed bg-center`} style={{
                 backgroundImage: `url(${image})`,
                 backgroundPosition: 'centered',
                 backgroundRepeat: 'no-repeat',
