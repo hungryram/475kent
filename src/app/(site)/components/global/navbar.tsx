@@ -166,13 +166,16 @@ export default function Example({
             })}
           </div>
           {!hideCta && ctaLinking &&
-            <div className="hidden lg:flex space-x-8">
-                <Link href={ctaLinking ?? '/'} className="primary-button block">
-                  {ctaLink?.text}
-                </Link>
-                <a href={'https://teneremg.twa.rentmanager.com/ApplyNow?propertyID=43&locations=1'} target="_blank" className="primary-button block">
-                  Apply
-                </a>
+            <div className="hidden lg:flex space-x-3">
+              <Link href={ctaLinking ?? '/'} className="primary-button block">
+                {ctaLink?.text}
+              </Link>
+              <a href={'https://teneremg.twa.rentmanager.com/ApplyNow?propertyID=43&locations=1'} target="_blank" className="primary-button block">
+                Apply
+              </a>
+              <a href={'https://calendly.com/475kentave'} target="_blank" className="primary-button block">
+                Book a Showing
+              </a>
             </div>
           }
         </nav>
@@ -297,6 +300,11 @@ export default function Example({
                 <div className="mb-6">
                   <Disclosure.Button as={Link} href={'https://teneremg.twa.rentmanager.com/ApplyNow?propertyID=43&locations=1'} target="_blank" className="primary-button block text-center mx-4">
                     Apply
+                  </Disclosure.Button>
+                </div>
+                <div className="mb-6">
+                  <Disclosure.Button as={Link} href={'https://calendly.com/475kentave'} target="_blank" className="primary-button block text-center mx-4">
+                    Book a Showing
                   </Disclosure.Button>
                 </div>
               </div>
