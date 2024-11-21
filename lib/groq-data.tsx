@@ -52,6 +52,30 @@ export const appearance = groq`
           _type
         }
       },
+        cta2 {
+        newTab,
+        _key,
+        linkType,
+        externalUrl,
+        text,
+        internalLink->{
+          title,
+          'slug': slug.current,
+          _type
+        }
+      },
+      cta3 {
+        newTab,
+        _key,
+        linkType,
+        externalUrl,
+        text,
+        internalLink->{
+          title,
+          'slug': slug.current,
+          _type
+        }
+      },
       'mainNav': mainNav->{
         'navItems':items[]{
           'subMenu':subMenu[]{

@@ -1,6 +1,5 @@
 import { defineField, defineType } from "sanity";
 import { colorOptions, paddingBottom, paddingTop, primaryButton, secondaryButton, textAlign } from "../lib/classes";
-import {copyPaste} from '@superside-oss/sanity-plugin-copy-paste'
 
 export default defineType({
   name: 'gallery',
@@ -11,7 +10,6 @@ export default defineType({
     { title: 'Settings', name: 'settings' },
   ],
   fields: [
-    defineField(copyPaste),
     {
       title: "Layout Type",
       name: "layoutType",

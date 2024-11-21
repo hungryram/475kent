@@ -20,6 +20,8 @@ export interface NavbarProps {
   mobileLogoWidth: number;
   hideCta: boolean;
   enableTransparent: boolean;
+  cta2: any;
+  cta3: any;
 }
 
 export default function Example({
@@ -34,7 +36,9 @@ export default function Example({
   ctaLink,
   mobileLogoWidth,
   hideCta,
-  enableTransparent
+  enableTransparent,
+  cta2,
+  cta3,
 }: NavbarProps) {
 
 
@@ -56,10 +60,19 @@ export default function Example({
     (ctaLink?.internalLink?._type === "pages" && `/${ctaLink?.internalLink.slug}`) ||
     (ctaLink?.internalLink?._type === "blog" && `/blog/${ctaLink?.internalLink.slug}`) ||
     (ctaLink?.internalLink?._type === "legal" && `/legal/${ctaLink?.internalLink.slug}`) ||
-    (ctaLink?.internalLink?._type === "services" && `/services/${ctaLink?.internalLink.slug}`) ||
-    (ctaLink?.internalLink?._type === "team" && `/team/${ctaLink?.internalLink.slug}`) ||
     (ctaLink?.externalUrl && `${ctaLink?.externalUrl}`)
 
+  const cta2Linking =
+    (cta2?.internalLink?._type === "pages" && `/${cta2?.internalLink.slug}`) ||
+    (cta2?.internalLink?._type === "blog" && `/blog/${cta2?.internalLink.slug}`) ||
+    (cta2?.internalLink?._type === "legal" && `/legal/${cta2?.internalLink.slug}`) ||
+    (cta2?.externalUrl && `${cta2?.externalUrl}`)
+
+  const cta3Linking =
+    (cta3?.internalLink?._type === "pages" && `/${cta3?.internalLink.slug}`) ||
+    (cta3?.internalLink?._type === "blog" && `/blog/${cta3?.internalLink.slug}`) ||
+    (cta3?.internalLink?._type === "legal" && `/legal/${cta3?.internalLink.slug}`) ||
+    (cta3?.externalUrl && `${cta3?.externalUrl}`)
   // Sets logo condition based on scroll events. When scrolling, logo decreases by 30%
   // const logoScroll = scroll ? (logoWidth ?? '200') * 0.7 : logoWidth ?? '200';
 
@@ -170,12 +183,16 @@ export default function Example({
               <Link href={ctaLinking ?? '/'} className="primary-button block">
                 {ctaLink?.text}
               </Link>
-              <a href={'https://teneremg.twa.rentmanager.com/ApplyNow?propertyID=43&locations=1'} target="_blank" className="primary-button block">
-                Apply
-              </a>
-              <a href={'https://calendly.com/475kentave'} target="_blank" className="primary-button block">
-                Book a Showing
-              </a>
+              {cta2 &&
+                <a href={cta2Linking ?? '/'} target="_blank" className="primary-button block">
+                  {cta2?.text}
+                </a>
+              }
+              {cta3 &&
+                <a href={cta3Linking ?? '/'} target="_blank" className="primary-button block">
+                  {cta3?.text}
+                </a>
+              }
             </div>
           }
         </nav>
@@ -297,16 +314,20 @@ export default function Example({
                     </Disclosure.Button>
                   </div>
                 }
-                <div className="mb-6">
-                  <Disclosure.Button as={Link} href={'https://teneremg.twa.rentmanager.com/ApplyNow?propertyID=43&locations=1'} target="_blank" className="primary-button block text-center mx-4">
-                    Apply
-                  </Disclosure.Button>
-                </div>
-                <div className="mb-6">
-                  <Disclosure.Button as={Link} href={'https://calendly.com/475kentave'} target="_blank" className="primary-button block text-center mx-4">
-                    Book a Showing
-                  </Disclosure.Button>
-                </div>
+                {cta2 &&
+                  <div className="mb-6">
+                    <Disclosure.Button as={Link} href={cta2Linking ?? '/'} target="_blank" className="primary-button block text-center mx-4">
+                      {cta2?.text}
+                    </Disclosure.Button>
+                  </div>
+                }
+                {cta3 &&
+                  <div className="mb-6">
+                    <Disclosure.Button as={Link} href={cta3Linking ?? '/'} target="_blank" className="primary-button block text-center mx-4">
+                      {cta3?.text}
+                    </Disclosure.Button>
+                  </div>
+                }
               </div>
             </Disclosure.Panel>
           </>

@@ -114,7 +114,7 @@ export default async function RootLayout({
     ...(data?.profileSettings?.seo?.meta_description && { "description": data?.profileSettings?.seo?.meta_description }),
   };
 
-  console.log(data.appearances.header)
+  console.log(data.appearances.header.cta2)
   const navbarSchema = {
     company_name: data.profileSettings?.company_name,
     logo: data.appearances?.branding?.logo?.asset?.url,
@@ -127,6 +127,8 @@ export default async function RootLayout({
     backgroundColor: data?.appearances?.navBgColor,
     enableTopHeader: data?.appearances?.topHeaderBar?.enableTopHeaderBar,
     ctaLink: data?.appearances?.header?.ctaLink,
+    cta2: data?.appearances?.header?.cta2,
+    cta3: data?.appearances?.header?.cta3,
     hideCta: data?.appearances?.header?.hideCta,
     enableTransparent: data?.appearances?.header?.enableTransparent,
   }
