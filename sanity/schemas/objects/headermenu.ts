@@ -50,6 +50,16 @@ export default defineType({
             type: "subMenu",
         },
         {
+            title: "Call to Action 2",
+            name: "cta2",
+            type: "subMenu",
+        },
+        {
+            title: "Call to Action 3",
+            name: "cta3",
+            type: "subMenu",
+        },
+        {
             title: "Hide Call to Action on Desktop",
             name: "hideCta",
             type: "boolean",
