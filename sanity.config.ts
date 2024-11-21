@@ -6,7 +6,6 @@ import { visionTool } from '@sanity/vision'
 import { defineConfig } from 'sanity'
 import { deskTool } from 'sanity/desk'
 import { colorInput } from "@sanity/color-input";
-import {copyPastePlugin} from '@superside-oss/sanity-plugin-copy-paste'
 import { MdOutlineDesignServices, MdPersonOutline } from "react-icons/md"
 import { apiVersion, dataset, projectId } from './sanity/env'
 import { media } from 'sanity-plugin-media'
@@ -131,7 +130,6 @@ export default defineConfig({
     ]
   },
   plugins: [
-    copyPastePlugin(),
     deskTool({
       structure: (S) => {
 

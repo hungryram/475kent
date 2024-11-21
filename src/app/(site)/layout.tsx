@@ -114,6 +114,7 @@ export default async function RootLayout({
     ...(data?.profileSettings?.seo?.meta_description && { "description": data?.profileSettings?.seo?.meta_description }),
   };
 
+  console.log(data.appearances.header)
   const navbarSchema = {
     company_name: data.profileSettings?.company_name,
     logo: data.appearances?.branding?.logo?.asset?.url,
